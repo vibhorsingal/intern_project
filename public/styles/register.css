@@ -1,0 +1,28 @@
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.formWrapper {
+    height: fit-content;
+    width: 70vh;
+    border: black 2px solid;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn{
+    width: 100%;
+}
+
+h6{
+    padding: 4px;
+}
+
+a{
+    text-decoration: none !important;
+    color: red !important;
+}
