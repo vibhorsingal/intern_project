@@ -26,8 +26,14 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
+    },
+    otp:{
+        type: Number,
+        default:0000
     }
 
+},{
+    timestamps:true
 })
 
 const Users = new mongoose.model('Users', userSchema)

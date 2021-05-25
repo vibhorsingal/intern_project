@@ -8,9 +8,11 @@ const loginRoute=require('./routes/loginRoute')
 const session=require('express-session')
 const passport=require('passport')
 const MongoStore=require('connect-mongo')
+const methodOverride=require('method-override')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use(methodOverride('_method'))
 
 app.set('view engine','ejs')
 app.use('/',express.static(__dirname+'/public'))
