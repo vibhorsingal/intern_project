@@ -1,0 +1,35 @@
+.wrapper{
+    width: 80vw;
+    height: max-content;
+    margin: auto;
+    margin-top: 15px;
+}
+
+span{
+    height: max-content  !important;
+}
+
+a{
+    font-size: 20px;
+}
+
+.navbar{
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#allBands{
+    margin-top: 30px;
+}
+p{
+    margin-bottom:0rem  !important;
+}
+
+.card{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+small{
+    margin-top: 4px;
+}

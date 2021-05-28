@@ -1,14 +1,20 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-const Users = require('../models/users')
 const bcrypt=require('bcrypt')
+const fetch=require('node-fetch')
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 },
     async (username, password, done) => {
-        const user= await Users.findOne({email:username})
+        const data= await fetch('http://localhost:5000/api/users/user',{
+                        method:'POST',
+                        body:JSON.stringify({'email':username}),
+                        headers: { 'Content-Type': 'application/json' }
+        })
+        const user=await data.json()
+        console.log(user)
         if(!user){
             return done(null, false, { message: 'Incorrect email' })
         }
@@ -25,11 +31,18 @@ passport.use(new LocalStrategy({
 ))
 
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    done(null, user._id);
   });
   
-  passport.deserializeUser(function(id, done) {
-    Users.findById(id, function(err, user) {
-      done(err, user);
-    });
+  passport.deserializeUser(async(id, done)=> {
+    try{
+        const data=await fetch(`http://localhost:5000/api/users/user/${id}`)
+        const user=await data.json()
+        console.log(user)
+        if(user) return done(null,user)
+        return done(err)
+    }
+    catch(err) {
+        console.log(err)
+    }
   });

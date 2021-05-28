@@ -30,7 +30,11 @@ const userSchema = new Schema({
     otp:{
         type: Number,
         default:0000
-    }
+    },
+    bands:[{
+        type:Schema.Types.ObjectId,
+        ref: 'Bands'
+    }]
 
 },{
     timestamps:true
